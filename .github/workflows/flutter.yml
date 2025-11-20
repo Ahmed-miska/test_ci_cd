@@ -41,3 +41,14 @@ jobs:
         with:
           name: release-apk
           path: build/app/outputs/flutter-apk/app-release.apk
+
+      - name: upload release 
+        uses: wzieba/Firebase-Distribution-GitHub-Action@v4
+        with:
+          appId: ${{ secrets.APP_ID}}
+          serviceCredentialsFileContent: ${{secrets.GOOGLE}}
+          groups: testers
+          file: build/app/outputs/flutter-apk/app-release.apk
+
+
+      
