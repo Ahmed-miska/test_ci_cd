@@ -42,13 +42,10 @@ jobs:
           name: release-apk
           path: build/app/outputs/flutter-apk/app-release.apk
 
-      - name: upload release 
-        uses: wzieba/Firebase-Distribution-GitHub-Action@v4
+      - name: Upload to Firebase Distribution
+        uses: wzieba/firebase-distribution-github-action@v1
         with:
-          appId: ${{ secrets.APP_ID}}
-          serviceCredentialsFileContent: ${{secrets.GOOGLE}}
+          appId: ${{ secrets.APP_ID }}
+          serviceCredentialsFileContent: ${{ secrets.GOOGLE }}
           groups: testers
           file: build/app/outputs/flutter-apk/app-release.apk
-
-
-      
